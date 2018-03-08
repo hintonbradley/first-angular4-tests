@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Step 4.4: Install Boostrap and import to styles */
+/* In terminal install bootstrap: $npm install bootstrap --save */
+/* Using the css @import statment we are going to import all bootstrap stylings into this file since we need to incorporate them into the styles.bundle.js.map file */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+    padding: 20px;
+}
+/* Step 4.7: Adding event listener to button. (click)="changeColor()" Changing color of button */
+.red {
+    background-color: red;
+}
+
+.btn-primary:hover {
+    background-color: none;
+    border-color: none;
+}
+

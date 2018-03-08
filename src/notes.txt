@@ -1,0 +1,30 @@
+How to set up a basic Angular app:
+Step 1: Install Angular/cli
+    $ npm install -g @angular/cli
+Step 2: Create and cd into the directory where you want your Angular app to live.
+Step 2: Create your Angular app using angular-cli.
+    $ng new name-of-app
+Step 3: Cd into the new directory
+    $ cd name-of-app
+Step 4: To view your app, start the Angular server and view on http://localhost:4200
+    $ng serve
+Step 5: To create a new component use Angular cli. This will create a name-of-component.component.css file, a name-of-component.component.html file, a name-of-component.component.spec.tst file and a name-of-component.component.ts file.
+    $ng g c name-of-component
+Step 6: Go to app/app.module.ts file to register the new Components.
+    @NgModule({
+    ...
+    declarations: [
+        AppComponent,
+        NameOfComponentComponent (Ex: UsersComponent)
+    ],
+    ...
+Step 7: To create a new service use Angular cli. This will create a name-of-service.servicespec.ts file and a name-of-service.service.ts file.
+    $ng g s name-of-service
+Step 8: Go to app/app.module.ts file to register the new Service as a provider.
+    @NgModule({
+    ...
+    providers: [
+        NameOfServiceService (Ex: UsersService)
+    ],
+    ...
+    })
