@@ -22,6 +22,11 @@ import { CoursesService } from './courses.service';
 // Step 4.8: Adding style binding to html using simple ternary <p [style.fontWeight]="isRed? '100': 'bold'">...
 // Step 4.9: Grabbing event data from event listener using keyword $event.
 // Step 4.10: Wrapping first event with parent and adding second click event to see how we can stop event from bubbling up the DOM using stopPropagation function.
+// Step 4.11: Adding an event filter to an input. Simply by adding the key after the click event. (keyup.enter)="onKeyUp()"
+// Step 4.12: Adding a template variable to an input to get the value of an input. Angular uses #variableName to target elements. <input #email (keyup.enter="onKeyUp(email.value)")/>
+// Step 4.13: Adding 2 way binding to input. <input [(ngModel)]='email' (keyup)="twoBindingChange()">
+// Step 4.14: Adding pipes. <h3>Pipes</h3>...
+// Step 4.15: Creating a custom pipe. <p>{{poem | summary:20}}</p> 20-an argument we use in the custom pipe.
 @Component({
     selector: 'courses',
     template: `
@@ -45,7 +50,16 @@ import { CoursesService } from './courses.service';
             <button (click)="changeColor($event)" class="btn btn-primary" [class.red]='isRed'>Change color</button>
         </div>
         <p [style.fontWeight]="isRed? '100': 'bold'">Click the button to change my font weight</p>
-        `
+        <input #email (keyup.enter)="onKeyUp(email.value)" />
+        <input [(ngModel)]='myEmail' (keyup)="twoBindingChange()" />
+        <h3>Pipes</h3>
+        <p>Name is: {{course.name | uppercase}}</p>
+        <p>Students: {{course.students | number}}</p>
+        <p>Pi is: {{course.pi | number:'1.2-2'}}</p>
+        <p>Price is: {{course.price | currency:USD$:2}}</p>
+        <p>Date is: {{course.releaseDate | date:'longDate'}}</p>
+        <p>{{poem | summary:20}}</p>
+     `
 })
 export class CoursesComponent {
     // Step 3.7: Adding a variable to be used dynamically in our html. We are going to bind this component variable to the view.
@@ -67,6 +81,30 @@ export class CoursesComponent {
     logParentClick(e) {
         console.log('parent event triggered! ', e)
     }
+    // Step 4.11: Adding an event filter to an input. Creating function to handle event.
+    // Step 4.12(cont): Adding a template variable to an input to get the value of an input. Since we've already targeted the element in the input, we passed it as an argument in the function.
+    onKeyUp( eventVal) {
+        console.log("ENTER was pressed", eventVal);
+    }
+
+    // Step 4.13: Adding 2 way binding to input. Adding var to initially set and bind to email input. And adding function to show 2 way binding change on each keystroke.
+    myEmail = 'my@email.com';
+
+    twoBindingChange() {
+        console.log(this.myEmail);
+    }
+
+    // Step 4.14: Adding pipes. Adding var to hold data for pipes.
+    course = {
+        name: 'James',
+        pi: 3.14159,
+        students: 4297,
+        price: 49.949345,
+        releaseDate: new Date(2016, 3, 1)
+    };
+
+    // Step 4.15: Creating a custom pipe. Adding text to cut with custom pipe.
+    poem = 'The time has come my little friends, to talk of other things Of shoes and ships and ceiling wax of cabbagges and kings, and while the sea is boiling hot, and wheather pigs have wings! Kaloo Kalay come run away With the cabbagges and kings';
 
     // Step 3.9: Using a function to return output to view:
     getTitle() {

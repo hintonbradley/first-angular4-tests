@@ -1,0 +1,18 @@
+<!-- Correct usage of star toggle from font awesome -->
+<!-- Step 5.2: Changing casing of variable from isFavorite to is-favorite to use an alias identifier. Changing isFavorite to isSelected -->
+<!-- [class.fa-star]="isFavorite"  -->
+  <!-- [class.fa-star-o]="!isFavorite"  -->
+  <!-- Step 5.6: Adding styles to components. Third and final way to add styling is through inline styles. -->
+<!-- <span style="background-color: lightgrey"
+  class="fa"
+  [class.fa-star]="isSelected" 
+  [class.fa-star-o]="!isSelected" 
+  (click)="updateFavorite()"></span> -->
+
+  <!-- Step 6.6: Using ngClass directive to toggle classes. -->
+  <span style="background-color: lightgrey"
+  class="fa"
+  [ngClass]="{
+    'fa-star':isSelected,
+    'fa-star-o':!isSelected}"
+  (click)="updateFavorite()"></span>

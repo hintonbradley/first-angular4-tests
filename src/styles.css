@@ -4,6 +4,8 @@
 /* In terminal install bootstrap: $npm install bootstrap --save */
 /* Using the css @import statment we are going to import all bootstrap stylings into this file since we need to incorporate them into the styles.bundle.js.map file */
 @import "~bootstrap/dist/css/bootstrap.css";
+/* Step 4.5: Adding in font-awesome css to use fa icons */
+@import "../node_modules/font-awesome/css/font-awesome.css";
 
 body {
     padding: 20px;

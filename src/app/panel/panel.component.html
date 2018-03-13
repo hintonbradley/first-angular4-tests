@@ -1,0 +1,9 @@
+<!-- Step 5.7: Creating elements with dynamic inner html. Use panel-heading and panel-body to create bootstrap panels.  Using select with .heading and .body classes to reference what's going to be placed in those elements from app.component.html.-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <ng-content select=".heading"></ng-content>
+  </div>
+  <div class="panel-body">
+    <ng-content select=".body"></ng-content>
+  </div>
+</div>
