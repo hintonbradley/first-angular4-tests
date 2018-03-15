@@ -1,0 +1,13 @@
+<!-- Step 9.1.7: Creating an input field to create a new post. Giving a property #title so we can pass a reference to this input field. Then go to component and create the method-->
+<input (keyup.enter)="createPost(title)" #title type="text" class="form-control">
+
+<!-- Step 9.1.6: Using posts to render the response to the view-->
+<ul>
+  <li *ngFor='let post of posts' class='list-group-item'>
+    {{post.title}}
+    <!-- Step 9.1.14: Create a button to update post -->
+    <button (click)="updatePost(post)" class="btn btn-default btn-sm btn-success">Update</button>
+    <!-- Step 9.1.15: Create a button to delete post -->
+    <button (click)="deletePost(post)" class="btn btn-default btn-sm btn-danger">Delete</button>
+  </li>
+</ul>

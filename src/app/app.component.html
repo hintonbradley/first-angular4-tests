@@ -7,59 +7,9 @@
 <!-- <favorite [isFavorite]='isFavorite'></favorite> -->
 <!-- Step 5.3: (Output) Adding a change method to be called in the favorites component to notify when changed. (change)="onFavoriteChanged()" -->
 <!-- Step 5.4: Passing data when we trigger an event which will be available to subscribers. We add the $event keyword - in this case since this is not a standard event object, but since this is a custom component, the $event keyword is anything we pass to the event -->
-<favorite [is-favorite]='isFavorite' (change)="onFavoriteChanged($event)"></favorite>
+<!-- <favorite [isFavorite]='isFavorite' (change)="onFavoriteChanged($event)"></favorite> -->
 
-<!-- Step 5.7:  Creating a element with dynamic inner content for the panel.component.html file. creating a heading and body class so the select props in panel.component.html know what to target.-->
-<!-- Step 5.8: Using ng-container so only innerHTML will be rendered and not the entire element. -->
-<bootstrap-panel>
-    <ng-container class="heading">Heading</ng-container>
-    <div class="body">
-        <h1>Body</h1>
-        <p>Some content here...</p>
-    </div>
-</bootstrap-panel>
+<!-- <directives></directives> -->
 
-<!-- Step 6.1: Using ngIf with then else keywords. Using #showTrue and #showFalse to target which element to show. ngIf removes elements from the DOM-->
-<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
-<ng-template #coursesList>
-    There are courses
-</ng-template>
-<ng-template #noCourses>
-    No courses
-</ng-template>
-
-<!-- Step 6.2: Using hidden to show/hide divs. Hidden keeps elements in the DOM, but simply does not show them. -->
-<div [hidden]="courses.length==0">
-    List of courses
-</div>
-<div [hidden]="courses.length >0">
-    No courses yet.
-</div>
-
-<!-- Step 6.3: Using ngSwitch to view multiple options. Binding to viewMode using ngSwitch. Adding switch cases with *ngSwitchCase and adding default case. Adding click listener to each li element.-->
-<ul class="nav nav-pills">
-    <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map View</a></li>
-    <li [class.active]="viewMode == 'list'"><a (click)="viewMode='list'">List View</a></li>
-</ul>
-<div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">Map View Content</div>
-    <div *ngSwitchCase="'list'">List View Content</div>
-    <div *ngSwitchCaseDefault>Otherwise</div>
-</div>
-<!-- Step 6.5: Loading courses and tracking -->
-<button (click)="loadCourses()">Load Courses</button>
-<!-- Step 6.4: Using ngFor to show list items and removing item. -->
-<!-- Step 6.5: Loading courses and tracking using trackBy if you don't always want to update an element-->
-<ul>
-    <li *ngFor="let course of courses; even as isEven; trackBy: trackCourse">
-        {{course.name}} <span *ngIf="isEven">Even</span>
-        <button (click)="onDelete(course)">Remove</button>
-    </li>
-</ul>
-<button (click)="onAdd()">Add</button>
-
-<!-- Step 6.8: Safe traversal operator -->
-<p>{{task.assignee?.name}}</p>
-
-<!-- Step 6.11: Creating a input element and attaching the appInputFormat attribute so the directive can be used on this element. -->
-<input type='text' appInputFormat>
+<!-- Step 9.1.3: Adding posts page to html -->
+<posts></posts>

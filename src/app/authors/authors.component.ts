@@ -1,6 +1,6 @@
 // Step 3.19: Created a new component using terminal ($ng g c authors
 import { Component, OnInit } from '@angular/core';
-import { AuthorsService } from '../authors.service';
+import { AuthorsService } from '../services/authors.service';
 
 // Angular tries to minimize clashing names from other third party components so it always adds 'app-' to selector. We are removing that for this example.
 @Component({

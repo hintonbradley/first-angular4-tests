@@ -1,7 +1,7 @@
 // Step 3.2(cont): Adding Component to change classes to components
 import {Component} from '@angular/core';
 // Step 3.14(cont): As soon as it's added below, it automatically is imported here.
-import { CoursesService } from './courses.service';
+import { CoursesService } from './services/courses.service';
 
 // Use Pascal naming convention for all component classes
 // Step 3.1: In order for Angular to be able to use this component, we need to export it. export class CoursesComponent {

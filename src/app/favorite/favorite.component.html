@@ -16,3 +16,13 @@
     'fa-star':isSelected,
     'fa-star-o':!isSelected}"
   (click)="updateFavorite()"></span>
+
+<!-- Step 5.7:  Creating a element with dynamic inner content for the panel.component.html file. creating a heading and body class so the select props in panel.component.html know what to target.-->
+<!-- Step 5.8: Using ng-container so only innerHTML will be rendered and not the entire element. -->
+<bootstrap-panel>
+  <ng-container class="heading">Heading</ng-container>
+  <div class="body">
+      <h1>Body</h1>
+      <p>Some content here...</p>
+  </div>
+</bootstrap-panel>

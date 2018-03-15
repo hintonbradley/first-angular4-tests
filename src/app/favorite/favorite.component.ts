@@ -17,7 +17,7 @@ export class FavoriteComponent {
   // Step 5.1: Making isFavorites an input property. We then use the Input method to mark fields and properties as input properties. When we do this to isFavorite, it is then available to the parent component and can be bound to it.
 // Step 5.2: Changing casing of variable from isFavorite to is-favorite to use an alias identifier. Adding identifier to @Input for isFavorite var while changing isFavorite to isSelected, so app.component.html will still use this same input if the key:value name is changed.
   // @Input('is-favorite') isFavorite: boolean;
-  @Input('is-favorite') isSelected: boolean;
+  @Input('isFavorite') isSelected: boolean;
   // Step 5.3: (Output) Adding a change method to be called in the favorites component to notify when changed. creating a change var and initializing as an instance of the eventEmitter class from Angular.
   // Step 5.5: Adding alias identifier for outputs in case we need to change var name. 
   @Output('change') change = new EventEmitter();
@@ -30,4 +30,8 @@ export class FavoriteComponent {
     this.change.emit({newValue: this.isSelected});
 
   }
+}
+
+export interface FavoriteChangedEventArgs {
+  newValue: boolean
 }
